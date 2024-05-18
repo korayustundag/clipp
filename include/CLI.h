@@ -39,6 +39,48 @@ namespace CLI
 			WriteLine();
 		}
 
+		void WriteLine(short val)
+		{
+			std::wstring text = std::to_wstring(val);
+			WriteConsoleW(ConsoleOutputHandle, text.c_str(), static_cast<DWORD>(text.size()), 0, 0);
+			WriteLine();
+		}
+		
+		void WriteLine(int val)
+		{
+			std::wstring text = std::to_wstring(val);
+			WriteConsoleW(ConsoleOutputHandle, text.c_str(), static_cast<DWORD>(text.size()), 0, 0);
+			WriteLine();
+		}
+		
+		void WriteLine(long val)
+		{
+			std::wstring text = std::to_wstring(val);
+			WriteConsoleW(ConsoleOutputHandle, text.c_str(), static_cast<DWORD>(text.size()), 0, 0);
+			WriteLine();
+		}
+		
+		void WriteLine(long long val)
+		{
+			std::wstring text = std::to_wstring(val);
+			WriteConsoleW(ConsoleOutputHandle, text.c_str(), static_cast<DWORD>(text.size()), 0, 0);
+			WriteLine();
+		}
+		
+		void WriteLine(double val)
+		{
+			std::wstring text = std::to_wstring(val);
+			WriteConsoleW(ConsoleOutputHandle, text.c_str(), static_cast<DWORD>(text.size()), 0, 0);
+			WriteLine();
+		}
+		
+		void WriteLine(float val)
+		{
+			std::wstring text = std::to_wstring(val);
+			WriteConsoleW(ConsoleOutputHandle, text.c_str(), static_cast<DWORD>(text.size()), 0, 0);
+			WriteLine();
+		}
+
 		std::wstring ReadLine()
 		{
 			DWORD dwRead = 0;

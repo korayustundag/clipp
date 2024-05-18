@@ -117,6 +117,37 @@ namespace CLI
 			SetConsoleTextAttribute(ConsoleOutputHandle, csbi.wAttributes);
 		}
 
+		void ClearConsole()
+		{
+			COORD coordScreen = { 0, 0 };
+			DWORD cCharsWritten;
+			DWORD dwConSize;
+		
+			if (!GetConsoleScreenBufferInfo(ConsoleOutputHandle, &csbi))
+			{
+				return;
+			}
+		
+			dwConSize = csbi.dwSize.X * csbi.dwSize.Y;
+		
+			if (!FillConsoleOutputCharacter(ConsoleOutputHandle, (TCHAR)' ', dwConSize, coordScreen, &cCharsWritten))
+			{
+				return;
+			}
+		
+			if (!GetConsoleScreenBufferInfo(ConsoleOutputHandle, &csbi))
+			{
+				return;
+			}
+		
+			if (!FillConsoleOutputAttribute(ConsoleOutputHandle, csbi.wAttributes, dwConSize, coordScreen, &cCharsWritten))
+			{
+				return;
+			}
+		
+			SetConsoleCursorPosition(ConsoleOutputHandle, coordScreen);
+		}
+
 		~Console();
 
 	private:

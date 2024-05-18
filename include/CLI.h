@@ -147,6 +147,15 @@ namespace CLI
 		
 			SetConsoleCursorPosition(ConsoleOutputHandle, coordScreen);
 		}
+		void SleepConsole(int milliSeconds)
+		{
+			Sleep(static_cast<DWORD>(milliSeconds));
+		}
+		
+		static void Exit(UINT code)
+		{
+			ExitProcess(code);
+		}
 
 		~Console();
 

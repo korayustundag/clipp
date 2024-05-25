@@ -1,5 +1,6 @@
 #pragma once
 #include <Windows.h>
+#include <synchapi.h>
 #include <string>
 
 #ifndef CLI__FRAMEWORK__X64
@@ -169,6 +170,7 @@ namespace CLI
 		
 			SetConsoleCursorPosition(ConsoleOutputHandle, coordScreen);
 		}
+
 		void SleepConsole(int milliSeconds)
 		{
 			Sleep(static_cast<DWORD>(milliSeconds));
